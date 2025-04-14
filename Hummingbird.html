@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hummingbirds of Utah</title>
+    <!-- Link to custom stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header div for title and navigation -->
+    <div class="header">
+        <h1>Hummingbirds of Utah</h1>
+        <p><a href="index.html">Back to Resume</a></p>
+    </div>
+
+    <!-- Main content div -->
+    <div class="main-content">
+        <!-- Introduction -->
+        <h2 id="intro">Introduction</h2>
+        <p>Utah is home to a vibrant array of hummingbirds, tiny birds known for their iridescent feathers and incredible agility. This page explores five species found in the state: black-chinned, broad-tailed, calliope, rufous, and Costa’s. Jump to a species using the links below:</p>
+        <!-- On-page anchor links -->
+        <ul>
+            <li><a href="#black-chinned">Black-Chinned</a></li>
+            <li><a href="#broad-tailed">Broad-Tailed</a></li>
+            <li><a href="#calliope">Calliope</a></li>
+            <li><a href="#rufous">Rufous</a></li>
+            <li><a href="#costas">Costa's</a></li>
+        </ul>
+
+        <!-- Embedded YouTube video -->
+        <h3>Watch Hummingbirds in Action</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/i1opPCICDCM?si=wgZSRLwZwm8YfYUa" title="Hummingbirdinaction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- Species List with Nested Lists -->
+        <h3 id="species">Utah Hummingbird Species</h3>
+        <ol>
+            <li id="black-chinned">Black-Chinned Hummingbird
+                <ul>
+                    <li>Appearance: Males have a black throat with a purple band; females are green with white underparts.</li>
+                    <li>Habitat: Common in canyons, rivers, and urban areas.</li>
+                    <li>Behavior: Territorial, often perches on bare branches.</li>
+                </ul>
+            </li>
+            <li id="broad-tailed">Broad-Tailed Hummingbird
+                <ul>
+                    <li>Appearance: Males have a rose-magenta throat; females have green spots on throat.</li>
+                    <li>Habitat: Breeds in high mountain meadows up to 10,500 feet.</li>
+                    <li>Behavior: Males perform diving displays with a trilling sound.</li>
+                </ul>
+            </li>
+            <li id="calliope">Calliope Hummingbird
+                <ul>
+                    <li>Appearance: Smallest U.S. bird; males have magenta throat streaks.</li>
+                    <li>Habitat: Found in high-elevation forests and meadows.</li>
+                    <li>Behavior: Migrates 5,000 miles to Mexico.</li>
+                </ul>
+            </li>
+            <li id="rufous">Rufous Hummingbird
+                <ul>
+                    <li>Appearance: Males are bright orange; females have rusty flanks.</li>
+                    <li>Habitat: Passes through Utah during migration.</li>
+                    <li>Behavior: Highly aggressive, chases other birds.</li>
+                </ul>
+            </li>
+            <li id="costas">Costa's Hummingbird
+                <ul>
+                    <li>Appearance: Males have a purple throat and forehead; females are green and white.</li>
+                    <li>Habitat: Rare in Utah, seen in southwestern deserts.</li>
+                    <li>Behavior: Compact, with shorter wings than others.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- Image -->
+        <h3>Hummingbird in Flight</h3>
+        <img src="Images/hummingbird.jpg" alt="Hummingbird hovering near a flower" class="hummingbird-img">
+
+        <!-- Tableau Visualization -->
+<h3>Hummingbird Species in Utah</h3>
+<p>Explore this interactive Tableau graph showing where hummingbird species are found in Utah.</p>
+<div class='tableauPlaceholder' id='viz1744656126773' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Sheet 1 ' src='https://public.tableau.com/static/images/Hu/HummingbirdTabluau/Sheet1/1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='HummingbirdTabluau/Sheet1' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https://public.tableau.com/static/images/Hu/HummingbirdTabluau/Sheet1/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1744656126773');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width='100%';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+    <!-- Sidebar div for quick facts -->
+    <div class="sidebar">
+        <h3>Quick Facts</h3>
+        <p>Hummingbirds flap their wings up to 80 times per second!</p>
+        <p>They consume half their body weight in nectar daily.</p>
+        <p><a href="#intro">Back to Top</a></p>
+    </div>
+</body>
+</html>

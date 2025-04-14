@@ -1,0 +1,84 @@
+/* Custom background color (gradient for a nature vibe) */
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif; /* Font color */
+    color: #333; /* Font color */
+}
+
+/* Header div styling */
+.header {
+    background-color: #004d40;
+    color: white; /* Font color */
+    text-align: center;
+    padding: 20px;
+    font-family: 'Lora', serif; /* Font family */
+}
+
+/* Specific style for h1 in header */
+.header h1 {
+    color: #f5faff; /* Cool white for Hummingbirds of Utah */
+}
+
+/* Main content div styling */
+.main-content {
+    width: 70%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Sidebar div styling */
+.sidebar {
+    width: 30%;
+    float: right;
+    background-color: #f1f8e9;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; /* Font family */
+    color: #2e7d32; /* Font color */
+}
+
+/* Headings */
+h2, h3 {
+    color: #00695c; /* Font color */
+    font-family: 'Lora', serif; /* Font family */
+}
+
+/* Links */
+a {
+    color: #0277bd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Image styling */
+.hummingbird-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #004d40;
+}
+
+/* List styling */
+ol, ul {
+    line-height: 1.6;
+}
+
+/* Clearfix for floats */
+.main-content::after, .sidebar::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-content, .sidebar {
+        width: 100%;
+        float: none;
+    }
+}
