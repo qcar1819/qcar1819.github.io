@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYU Motivation Generator</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #002E5D, #0066CC); /* BYU navy to royal blue */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #FFFFFF;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #002E5D; /* BYU navy */
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #0066CC; /* BYU royal blue */
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004099; /* Darker blue */
+        }
+
+        /* Dropdown */
+        select {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            border: 1px solid #002E5D;
+        }
+
+        /* Quote card */
+        #quoteDisplay {
+            background-color: #F5F6F5; /* Default light gray */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.5s ease-in; /* Fade-in animation */
+            min-height: 60px; /* Prevent layout shift */
+        }
+
+        #quoteDisplay.show {
+            opacity: 1;
+        }
+
+        /* Share button */
+        .share-btn {
+            background-color: #333; /* X platform dark gray */
+            color: #FFFFFF;
+        }
+
+        .share-btn:hover {
+            background-color: #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            button, select {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BYU Motivation Generator</h1>
+    </header>
+    <div class="container">
+        <h2>Study Motivation for Finals Week</h2>
+        <p>Get inspired to crush your finals at BYU!</p>
+        <!-- General study quote button -->
+        <button onclick="generateQuote()">Generate Study Quote</button>
+        <!-- Class-specific quote selector -->
+        <h3>Class-Specific Motivation</h3>
+        <select id="classSelect">
+            <option value="Finance 201">Finance 201</option>
+            <option value="IS 201">IS 201</option>
+            <option value="Accounting 310">Accounting 310</option>
+        </select>
+        <button onclick="generateClassQuote()">Get Class Quote</button>
+        <!-- Quote display -->
+        <div id="quoteDisplay">Click a button to get motivated!</div>
+    </div>
+
+    <script>
+        // General study quotes for finals week
+        const studyQuotes = [
+            "You've got this! One more push in the HBLL, and you'll ace those finals!",
+            "Keep grinding—every study session brings you closer to your BYU degree!",
+            "Channel that Cougar spirit and conquer your finals week challenges!",
+            "Stay focused in the Wilk, and your hard work will pay off!",
+            "You're a BYU student—finals are tough, but you're tougher!",
+            "Take a deep breath and tackle those study guides like a true Cougar!"
+        ];
+
+        // Class-specific quotes
+        const classQuotes = {
+            "Finance 201": [
+                "Master those cash flow formulas in Finance 201—your future CFO self will thank you!",
+                "Keep crunching numbers in Finance 201; you're building skills for the real world!",
+                "Finance 201 is tough, but your dedication will make you a financial rockstar!"
+            ],
+            "IS 201": [
+                "Debug that IS 201 code like a pro—you're coding your way to success!",
+                "Every HTML tag you master in IS 201 is a step toward tech greatness!",
+                "IS 201 is your playground—build those web skills and shine!"
+            ],
+            "Accounting 310": [
+                "Balance those ledgers in Accounting 310—you're on track to be an accounting legend!",
+                "Accounting 310 journals are tough, but your precision will pay off!",
+                "Keep those debits and credits in check—Accounting 310 is your time to excel!"
+            ]
+        };
+
+        // Colors for dynamic quote card background
+        const cardColors = ['#F5F6F5', '#E3F2FD', '#E8F5E9', '#FFF3E0'];
+
+        // Load last quote from localStorage
+        const savedQuote = localStorage.getItem('lastQuote');
+        if (savedQuote) {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            quoteDisplay.textContent = savedQuote;
+            quoteDisplay.classList.add('show');
+        }
+
+        // Generate random study quote
+        function generateQuote() {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const randomQuote = studyQuotes[Math.floor(Math.random() * studyQuotes.length)];
+            const randomColor = cardColors[Math.floor(Math.random() * cardColors.length)];
+            
+            quoteDisplay.textContent = randomQuote;
+            quoteDisplay.style.backgroundColor = randomColor;
+            quoteDisplay.classList.remove('show');
+            setTimeout(() => quoteDisplay.classList.add('show'), 10); // Trigger fade-in
+            localStorage.setItem('lastQuote', randomQuote); // Save quote
+        }
+
+        // Generate class-specific quote
+        function generateClassQuote() {
+            const classSelect = document.getElementById('classSelect').value;
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const quotes = classQuotes[classSelect];
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            const randomColor = cardColors[Math.floor(Math.random() * cardColors.length)];
+            
+            quoteDisplay.textContent = randomQuote;
+            quoteDisplay.style.backgroundColor = randomColor;
+            quoteDisplay.classList.remove('show');
+            setTimeout(() => quoteDisplay.classList.add('show'), 10); // Trigger fade-in
+            localStorage.setItem('lastQuote', randomQuote); // Save quote
+        }
+    </script>
+</body>
+</html>
